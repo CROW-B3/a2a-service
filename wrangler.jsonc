@@ -1,0 +1,49 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "crow-a2a-service",
+  "account_id": "8f0203259905d8923687286c84921e6c",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-01-14",
+  "compatibility_flags": ["nodejs_compat", "nodejs_als"],
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "vars": {
+    "ENVIRONMENT": "prod"
+  },
+  "ai": {
+    "binding": "AI"
+  },
+  "routes": [
+    {
+      "pattern": "a2a.crowai.dev",
+      "custom_domain": true
+    }
+  ],
+  "env": {
+    "dev": {
+      "vars": {
+        "ENVIRONMENT": "dev"
+      },
+      "ai": {
+        "binding": "AI"
+      },
+      "routes": [
+        {
+          "pattern": "dev.a2a.crowai.dev",
+          "custom_domain": true
+        }
+      ]
+    },
+    "local": {
+      "vars": {
+        "ENVIRONMENT": "local"
+      },
+      "ai": {
+        "binding": "AI",
+        "remote": true
+      }
+    }
+  }
+}
