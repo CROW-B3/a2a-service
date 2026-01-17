@@ -1,33 +1,36 @@
+import express from 'express';
+import { AGENT_CARD_PATH } from '@a2a-js/sdk';
 import {
   agentCardHandler,
   jsonRpcHandler,
   restHandler,
   UserBuilder,
 } from '@a2a-js/sdk/server/express';
-import { Hono } from 'hono';
 import { requestHandler } from './agent';
 
-type Environment = CloudflareBindings;
+const PORT = process.env.PORT || 8020;
 
-const app = new Hono<{ Bindings: Environment }>();
+const app = express();
 
-app.get('/', c => {
-  return c.text('Hello from CROW A2A Service!');
+app.get('/', (_req, res) => {
+  res.send('Hello from CROW A2A Service!');
 });
 
-app.all(
-  '/.well-known/agent.json',
+app.use(
+  `/${AGENT_CARD_PATH}`,
   agentCardHandler({ agentCardProvider: requestHandler })
 );
 
-app.all(
+app.use(
   '/a2a/jsonrpc',
   jsonRpcHandler({ requestHandler, userBuilder: UserBuilder.noAuthentication })
 );
 
-app.all(
+app.use(
   '/a2a/rest',
   restHandler({ requestHandler, userBuilder: UserBuilder.noAuthentication })
 );
 
-export default app;
+app.listen(PORT, () => {
+  console.log(`CROW A2A Service started on http://localhost:${PORT}`);
+});
