@@ -1,3 +1,4 @@
+import './lib/tracing';
 import express from 'express';
 import { AGENT_CARD_PATH } from '@a2a-js/sdk';
 import {
