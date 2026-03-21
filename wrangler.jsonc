@@ -11,7 +11,8 @@
   },
   "vars": {
     "ENVIRONMENT": "prod",
-    "BASE_URL": "https://a2a.crowai.dev"
+    "BASE_URL": "https://a2a.crowai.dev",
+    "AI_GATEWAY_ID": "crow-ai-gateway"
   },
   "ai": {
     "binding": "AI"
@@ -26,7 +27,8 @@
     "dev": {
       "vars": {
         "ENVIRONMENT": "dev",
-        "BASE_URL": "https://dev.a2a.crowai.dev"
+        "BASE_URL": "https://dev.a2a.crowai.dev",
+        "AI_GATEWAY_ID": "crow-ai-gateway"
       },
       "ai": {
         "binding": "AI"
@@ -41,7 +43,8 @@
     "local": {
       "vars": {
         "ENVIRONMENT": "local",
-        "BASE_URL": "http://localhost:8020"
+        "BASE_URL": "http://localhost:8020",
+        "AI_GATEWAY_ID": "crow-ai-gateway"
       },
       "ai": {
         "binding": "AI",
