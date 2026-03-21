@@ -10,7 +10,8 @@
     "prepare": "husky",
     "lint": "eslint src/",
     "lint:fix": "eslint src/ --fix",
-    "format": "bun run prettier src/ --write"
+    "format": "bun run prettier src/ --write",
+    "cf-typegen": "wrangler types"
   },
   "dependencies": {
     "@a2a-js/sdk": "^0.3.7",
