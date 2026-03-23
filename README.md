@@ -1,21 +1,17 @@
-```txt
-npm install
-npm run dev
+# a2a-service
+
+Agent-to-Agent protocol service. Exposes CROW capabilities to external AI agents via the A2A spec.
+
+## Setup
+
+```bash
+bun install
 ```
 
-```txt
-npm run deploy
+## Dev
+
+```bash
+bun run dev
 ```
 
-[For generating/synchronizing types based on your Worker configuration run](https://developers.cloudflare.com/workers/wrangler/commands/#types):
-
-```txt
-npm run cf-typegen
-```
-
-Pass the `CloudflareBindings` as generics when instantiation `Hono`:
-
-```ts
-// src/index.ts
-const app = new Hono<{ Bindings: CloudflareBindings }>();
-```
+Runs on `localhost:8020`.
