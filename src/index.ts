@@ -15,6 +15,9 @@ interface Env {
 const app = new Hono<{ Bindings: Env }>();
 
 app.get('/', c => c.text('Hello from CROW A2A Service!'));
+app.get('/health', c =>
+  c.json({ status: 'healthy', service: 'crow-a2a-service' })
+);
 
 app.get(`/${AGENT_CARD_PATH}`, async c => {
   const requestHandler = createRequestHandler(
