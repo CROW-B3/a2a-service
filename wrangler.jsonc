@@ -4,55 +4,12 @@
   "account_id": "8f0203259905d8923687286c84921e6c",
   "main": "src/index.ts",
   "compatibility_date": "2026-01-14",
-  "compatibility_flags": ["nodejs_compat", "nodejs_als"],
+  "compatibility_flags": [
+    "nodejs_compat",
+    "nodejs_als"
+  ],
   "observability": {
     "enabled": true,
     "head_sampling_rate": 1
-  },
-  "vars": {
-    "ENVIRONMENT": "prod",
-    "BASE_URL": "https://a2a.crowai.dev",
-    "AI_GATEWAY_ID": "crow-ai-gateway",
-    "BFF_CHAT_URL": "https://internal.chat.crowai.dev"
-  },
-  "ai": {
-    "binding": "AI"
-  },
-  "routes": [
-    {
-      "pattern": "a2a.crowai.dev",
-      "custom_domain": true
-    }
-  ],
-  "env": {
-    "dev": {
-      "vars": {
-        "ENVIRONMENT": "dev",
-        "BASE_URL": "https://dev.a2a.crowai.dev",
-        "AI_GATEWAY_ID": "crow-ai-gateway",
-        "BFF_CHAT_URL": "https://dev.internal.chat.crowai.dev"
-      },
-      "ai": {
-        "binding": "AI"
-      },
-      "routes": [
-        {
-          "pattern": "dev.a2a.crowai.dev",
-          "custom_domain": true
-        }
-      ]
-    },
-    "local": {
-      "vars": {
-        "ENVIRONMENT": "local",
-        "BASE_URL": "http://localhost:8020",
-        "AI_GATEWAY_ID": "crow-ai-gateway",
-        "BFF_CHAT_URL": "http://localhost:8009"
-      },
-      "ai": {
-        "binding": "AI",
-        "remote": true
-      }
-    }
   }
 }
